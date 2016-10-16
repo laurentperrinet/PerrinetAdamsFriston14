@@ -1,19 +1,33 @@
-%!TEX TS-program = LuaLaTeX
+%!TEX TS-program = PdfLaTeX
 %!TEX encoding = UTF-8 Unicode
 % -*- coding: UTF-8; -*-
 % vim: set fenc=utf-8
-%!BIB TS-program = biber
+%!BIB TS-program = bibtex
 %!TEX spellcheck = en-GB
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Title}{Active inference, eye movements and oculomotor delays}%
+\newcommand{\AuthorA}{Laurent U.~Perrinet}%
+\newcommand{\AuthorB}{Rick A.~Adams} %
+\newcommand{\AuthorC}{Karl J.~Friston} %
+\newcommand{\Address}{Institut de Neurosciences de la Timone \\ CNRS / Aix-Marseille Universit\'e - Marseille, France}%
+\newcommand{\AddressBis}{The Wellcome Trust Centre for Neuroimaging \\ University College London - London, UK.}%
+\newcommand{\Website}{http://invibe.net/LaurentPerrinet}%
+\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}%
+\newcommand{\Abstract}{This paper considers the problem of sensorimotor delays in the optimal control of (smooth) eye movements under uncertainty. Specifically, we consider delays in the visuo-oculomotor loop and their implications for active inference. Active inference uses a generalisation of Kalman filtering to provide Bayes optimal estimates of hidden states and action in generalized coordinates of motion. Representing hidden states in generalized coordinates provides a simple way of compensating for both sensory and oculomotor delays. The efficacy of this scheme is illustrated using neuronal simulations of pursuit initiation responses, with and without compensation. We then consider an extension of the generative model to simulate smooth pursuit eye movements --- in which the visuo-oculomotor system believes both the target and its centre of gaze are attracted to a (hidden) point moving in the visual field. Finally, the generative model is equipped with a hierarchical structure, so that it can recognise and remember unseen (occluded) trajectories and emit anticipatory responses. These simulations speak to a straightforward and neurobiologically plausible solution to the generic problem of integrating information from different sources with different temporal delays and the particular difficulties encountered when a system --- like the oculomotor system --- tries to control its environment with delayed signals. }%
+\newcommand{\Keywords}{Oculomotor delays; tracking eye movements; smooth pursuit eye movements; generalized coordinates; perception; Bayesian filtering; variational free energy; active inference}%
+\newcommand{\Acknowledgments}{
+LuP was supported by EC IP project FP6-015879, ``FACETS'' and FP7-269921, ``BrainScaleS'' and by the Wellcome Trust Centre for Neuroimaging. RAA and KJF are supported by the Wellcome Trust Centre for Neuroimaging. %
+}%
 \documentclass[a4paper]{article} % For LaTeX2e
 %============ common ===================
 %\usepackage[latin1]{inputenc}%
 \usepackage[english]{babel}%
-\usepackage{csquotes}%
-\usepackage{fontspec}
-\defaultfontfeatures{Mapping=tex-text}
-\setromanfont[Mapping=tex-text]{Hoefler Text}
-\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
-\setmonofont[Scale=MatchLowercase]{Andale Mono}   
+%\usepackage{csquotes}%
+%\usepackage{fontspec}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setromanfont[Mapping=tex-text]{Hoefler Text}
+%\setsansfont[Scale=MatchLowercase,Mapping=tex-text]{Gill Sans}
+%\setmonofont[Scale=MatchLowercase]{Andale Mono}   
 \usepackage{amsmath,amsfonts,amsthm}			% Math packages
 \usepackage{tikz}
 \usetikzlibrary{calc}
@@ -22,20 +36,7 @@
 %\tikzexternalize %  activate!
 \usepackage{graphicx}					% Enable pdflatex
 %\graphicspath{{./figures/}}%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\AuthorA}{Laurent U.~Perrinet}%
-\newcommand{\AuthorB}{Rick A.~Adams} %
-\newcommand{\AuthorC}{Karl J.~Friston} %
-\newcommand{\Address}{Institut de Neurosciences de la Timone \\ CNRS / Aix-Marseille Universit\'e - Marseille, France}%
-\newcommand{\AddressBis}{The Wellcome Trust Centre for Neuroimaging \\ University College London - London, UK.}%
-\newcommand{\Website}{http://invibe.net/LaurentPerrinet}%
-\newcommand{\Email}{Laurent.Perrinet@univ-amu.fr}%
-\newcommand{\Title}{Active inference, eye movements and oculomotor delays}%
-\newcommand{\Abstract}{This paper considers the problem of sensorimotor delays in the optimal control of (smooth) eye movements under uncertainty. Specifically, we consider delays in the visuo-oculomotor loop and their implications for active inference. Active inference uses a generalisation of Kalman filtering to provide Bayes optimal estimates of hidden states and action in generalized coordinates of motion. Representing hidden states in generalized coordinates provides a simple way of compensating for both sensory and oculomotor delays. The efficacy of this scheme is illustrated using neuronal simulations of pursuit initiation responses, with and without compensation. We then consider an extension of the generative model to simulate smooth pursuit eye movements --- in which the visuo-oculomotor system believes both the target and its centre of gaze are attracted to a (hidden) point moving in the visual field. Finally, the generative model is equipped with a hierarchical structure, so that it can recognise and remember unseen (occluded) trajectories and emit anticipatory responses. These simulations speak to a straightforward and neurobiologically plausible solution to the generic problem of integrating information from different sources with different temporal delays and the particular difficulties encountered when a system --- like the oculomotor system --- tries to control its environment with delayed signals. }%
-\newcommand{\Keywords}{Oculomotor delays; tracking eye movements; smooth pursuit eye movements; generalized coordinates; perception; Bayesian filtering; variational free energy; active inference}%
-\newcommand{\Acknowledgments}{
-LuP was supported by EC IP project FP6-015879, ``FACETS'' and FP7-269921, ``BrainScaleS'' and by the Wellcome Trust Centre for Neuroimaging. RAA and KJF are supported by the Wellcome Trust Centre for Neuroimaging. %
-}%
+
 %%%%%%%%%%%%%%%%%%
 %BIBLIOGRAPHY
 %%%%%%%%%%%%%%%%%%
@@ -49,7 +50,7 @@ LuP was supported by EC IP project FP6-015879, ``FACETS'' and FP7-269921, ``Brai
 			dashed=false,
 			uniquename=false,
 			block=space,
-			backend=biber,
+			backend=bibtex,
 			doi=false,isbn=false,url=false,
 %			backref=true,
 			]{biblatex}%

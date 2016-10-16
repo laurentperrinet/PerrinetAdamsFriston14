@@ -17,7 +17,7 @@ mac_edit:
 #################################################
 pdf: $(SRC).pdf
 #LATEXMK = latexmk -pdf
-LATEXMK = latexmk --pdf  -pdflatex=lualatex
+LATEXMK = latexmk --pdf  -pdflatex=pdflatex
 
 $(SRC).pdf: $(SRC).tex
 	$(LATEXMK) $(SRC)
