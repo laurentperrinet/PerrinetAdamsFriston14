@@ -25,8 +25,8 @@ $(SRC).pdf: $(SRC).tex
 $(SRC).bib: bib
 bib: bib_citeulike
 bib_citeulike:
-	wget "http://www.citeulike.org/bibtex/user/LaurentPerrinet/tag/freemove" -O ${SRC}.bib
-	#wget "http://www.citeulike.org/bibtex/user/LaurentPerrinet/tag/freemove?fieldmap=posted-at:date-added&do_username_prefix=0&key_type=4" -O ${SRC}.bib
+	wget "http://www.citeulike.org/bibtex/user/LaurentPerrinet/tag/freemove" -O ../biblio/${SRC}.bib
+	#wget "http://www.citeulike.org/bibtex/user/LaurentPerrinet/tag/freemove?fieldmap=posted-at:date-added&do_username_prefix=0&key_type=4" -O ../biblio/${SRC}.bib
 
 ################################################
 # post-production
